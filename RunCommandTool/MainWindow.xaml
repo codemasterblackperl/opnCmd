@@ -1,0 +1,27 @@
+﻿<Window x:Class="RunCommandTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RunCommandTool"
+        mc:Ignorable="d"
+        Title="Open Powershell at selected Directory" Height="450" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Content="Add Directory" HorizontalAlignment="Right" Height="34" Margin="0,10,10,0" VerticalAlignment="Top" Width="113" Click="BtnAddDirectory"/>
+        <TextBox x:Name="TxtDirectory" Height="34" Margin="10,10,217,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"/>
+        <Button Content="Browse" HorizontalAlignment="Right" Margin="0,10,128,0" VerticalAlignment="Top" Width="84" Height="34" Click="BtnBrowseDirectory"/>
+        <DataGrid x:Name="DgDirs" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,59,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding}" Header="Directory Location" Width="600"/>
+                <DataGridTemplateColumn Header="Actions" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Width="110" Height="30" Click="BtnOpenPowershellClick">Open Powershell</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
